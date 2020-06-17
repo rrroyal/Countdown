@@ -52,9 +52,16 @@ struct ContentView: View {
 							Image(systemName: "trash")
 						}
 					}
+					.onTapGesture {
+						self.activeCountdown = countdown
+						self.isSheetPresented = true
+					}
 					.listRowBackground(Color(countdown.color ?? UIColor.clear).opacity(0.1))
 					.contentShape(Rectangle())
 					.id("\(countdown.id):\(countdown.color ?? UIColor())")
+			}
+			.onMove { (source, destination) in
+				self.Store.countdowns.move(fromOffsets: source, toOffset: destination)
 			}
 			.onDelete { (indexSet) in
 				indexSet.forEach { index in
@@ -91,7 +98,7 @@ struct ContentView: View {
 				}
 			}
 			.navigationBarTitle(Text("Countdowns"))
-			.navigationBarItems(trailing:
+			.navigationBarItems(leading: EditButton(), trailing:
 				Button(action: {
 					self.activeCountdown = nil
 					self.isSheetPresented.toggle()

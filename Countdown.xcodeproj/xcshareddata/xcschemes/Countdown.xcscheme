@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E7D327C52492A4E900ED86EA"
-               BuildableName = "Countdown.app"
+               BuildableName = "Countdowns.app"
                BlueprintName = "Countdown"
                ReferencedContainer = "container:Countdown.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E7D327C52492A4E900ED86EA"
-            BuildableName = "Countdown.app"
+            BuildableName = "Countdowns.app"
             BlueprintName = "Countdown"
             ReferencedContainer = "container:Countdown.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E7D327C52492A4E900ED86EA"
-            BuildableName = "Countdown.app"
+            BuildableName = "Countdowns.app"
             BlueprintName = "Countdown"
             ReferencedContainer = "container:Countdown.xcodeproj">
          </BuildableReference>

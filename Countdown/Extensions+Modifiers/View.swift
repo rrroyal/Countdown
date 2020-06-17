@@ -85,8 +85,8 @@ extension View {
 	
 	func withBackground() -> some View {
 		return self
-			.frame(height: 55)
-			.background(RoundedRectangle(cornerRadius: 10).fill(Color.secondary.opacity(0.05)))
+			.background(Color.secondary.opacity(0.05))
 			.mask(RoundedRectangle(cornerRadius: 10))
+			.frame(height: 55)
 	}
 }

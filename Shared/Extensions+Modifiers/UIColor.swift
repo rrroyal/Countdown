@@ -22,6 +22,14 @@ extension UIColor {
 			cString.removeLast(cString.count - 6)
 		}
 		
+		// Make the 3-char hex value properly working
+		if (cString.count == 3) {
+			let r: String = String(cString[0])
+			let g: String = String(cString[1])
+			let b: String = String(cString[2])
+			cString = "\(r)\(r)\(g)\(g)\(b)\(b)"
+		}
+		
 		if (!cString.isValidHex) {
 			return nil
 		}

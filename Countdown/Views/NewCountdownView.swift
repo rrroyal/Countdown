@@ -35,7 +35,7 @@ struct NewCountdownView: View {
 	
 	var isAddButtonEnabled: Bool {
 		get {
-			return !self.countdownTitle.isEmpty && self.countdownDate >= Date()
+			return !self.countdownTitle.isEmpty
 		}
 	}
 	
@@ -166,10 +166,13 @@ struct NewCountdownView: View {
 							Spacer()
 							Text(self.countdownDate.string(format: "dd/MM/yyyy"))
 								.font(.headline)
-								.animation(nil)
+								.id("\(self.countdownDate):\(self.countdownColor?.hex ?? "")")
+								.animation(.easeInOut)
+								.transition(.opacity)
 							Spacer()
 						}
 						.padding()
+						.background(self.isDatePickerDayVisible ? Color(UIColor.systemGray5) : nil)
 												
 						// Hour
 						Button(action: {
@@ -179,23 +182,34 @@ struct NewCountdownView: View {
 							Spacer()
 							Text(self.countdownDate.string(format: "HH:mm"))
 								.font(.headline)
-								.animation(nil)
+								.id("\(self.countdownDate):\(self.countdownColor?.hex ?? "")")
+								.animation(.easeInOut)
+								.transition(.opacity)
 							Spacer()
 						}
 						.padding()
+						.background(self.isDatePickerHourVisible ? Color(UIColor.systemGray5) : nil)
 					}
 					.withBackground()
 					
 					if (self.isDatePickerDayVisible && !self.isDatePickerHourVisible) {
 						// Day
-						DatePicker("", selection: $countdownDate, in: Date()..., displayedComponents: .date)
-							.datePickerStyle(WheelDatePickerStyle())
-							.labelsHidden()
+						HStack {
+							Spacer()
+							DatePicker("", selection: $countdownDate, displayedComponents: .date)
+								.datePickerStyle(WheelDatePickerStyle())
+								.labelsHidden()
+							Spacer()
+						}
 					} else if (!self.isDatePickerDayVisible && self.isDatePickerHourVisible) {
 						// Hour
-						DatePicker("", selection: $countdownDate, in: Date()..., displayedComponents: .hourAndMinute)
-							.datePickerStyle(WheelDatePickerStyle())
-							.labelsHidden()
+						HStack {
+							Spacer()
+							DatePicker("", selection: $countdownDate, displayedComponents: .hourAndMinute)
+								.datePickerStyle(WheelDatePickerStyle())
+								.labelsHidden()
+							Spacer()
+						}
 					}
 				}
 				.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)

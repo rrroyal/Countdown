@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Countdown
+  pl_PL
+
+  Created by royal on 17/06/2020.
+  Copyright © 2020 shameful. All rights reserved.
+*/
+
+"Countdowns" = "Odliczania";
+"No countdowns" = "Brak odliczań";
+"Title" = "Tytuł";
+"Color" = "Kolor";
+"Icon" = "Ikona";
+"Date" = "Data";
+"Add" = "Dodaj";
+"Edit" = "Edytuj";
+"Copy date" = "Kopiuj datę";
+"Delete" = "Usuń";
